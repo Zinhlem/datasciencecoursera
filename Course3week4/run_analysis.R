@@ -70,3 +70,11 @@ names(mean.std.data) <- gsub("angle", "Angle", names(mean.std.data))
 names(mean.std.data) <- gsub("gravity", "Gravity", names(mean.std.data))
 
 names(mean.std.data)
+
+#5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+Final.Data <- mean.std.data %>%
+    group_by(subject, activity) %>%
+    summarise_all(funs(mean))
+write.table(Final.Data, "Final_data.txt",
+            row.name=FALSE)
