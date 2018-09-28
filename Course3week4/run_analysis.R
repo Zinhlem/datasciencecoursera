@@ -78,3 +78,4 @@ Final.Data <- mean.std.data %>%
     summarise_all(funs(mean))
 write.table(Final.Data, "Final_data.txt",
             row.name=FALSE)
+ 
